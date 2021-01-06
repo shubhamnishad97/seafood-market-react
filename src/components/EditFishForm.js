@@ -1,54 +1,57 @@
-import React from 'react';
+import React from "react";
 
 class EditFishForm extends React.Component {
-    handleChange = (e) => {
-        const updatedFish = {
-            ...this.props.fish,
-            [e.currentTarget.name]: e.currentTarget.value
-        };
-        this.props.updateFish(this.props.index, updatedFish);
+  handleChange = event => {
+    console.log(event.currentTarget.value);
+    // update that fish
+    // 1. Take a copy of the curernt fish
+    const updatedFish = {
+      ...this.props.fish,
+      [event.currentTarget.name]: event.currentTarget.value
     };
-    render() {
-        const fish = this.props.fish;
-        return (
-            <div className="fish-edit">
-                <input
-                    type="text"
-                    name="name"
-                    value={fish.name}
-                    onChange={this.handleChange}
-                />
-                <input
-                    type="text"
-                    name="price"
-                    value={fish.price}
-                    onChange={this.handleChange}
-                />
-                <select
-                    name="status"
-                    value={fish.status}
-                    onChange={this.handleChange}
-                >
-                    <option value="available">Fresh</option>
-                    <option value="unavailable">Sold Out</option>
-                </select>
-                <textarea
-                    name="desc"
-                    value={fish.desc}
-                    onChange={this.handleChange}
-                />
-                <input
-                    type="text"
-                    name="image"
-                    value={fish.image}
-                    onChange={this.handleChange}
-                />
-                <button onClick={() => this.props.deleteFish(this.props.index)}>
-                    Remove Fish
-                </button>
-            </div>
-        );
-    }
+    this.props.updateFish(this.props.index, updatedFish);
+  };
+  render() {
+    return (
+      <div className="fish-edit">
+        <input
+          type="text"
+          name="name"
+          onChange={this.handleChange}
+          value={this.props.fish.name}
+        />
+        <input
+          type="text"
+          name="price"
+          onChange={this.handleChange}
+          value={this.props.fish.price}
+        />
+        <select
+          type="text"
+          name="status"
+          onChange={this.handleChange}
+          value={this.props.fish.status}
+        >
+          <option value="available">Fresh!</option>
+          <option value="unavailable">Sold Out!</option>
+        </select>
+        <textarea
+          name="desc"
+          onChange={this.handleChange}
+          value={this.props.fish.desc}
+        />
+        <input
+          type="text"
+          name="image"
+          onChange={this.handleChange}
+          value={this.props.fish.image}
+        />
+        <button onClick={() => this.props.deleteFish(this.props.index)}>
+          Remove Fish
+        </button>
+      </div>
+    );
+  }
 }
 
 export default EditFishForm;
