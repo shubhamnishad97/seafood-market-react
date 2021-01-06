@@ -61,6 +61,10 @@ class Order extends React.Component {
                     Total:
                     <strong>{formatPrice(total)}</strong>
                 </div>
+                <br></br>
+                <button onClick={this.props.loadSampleFishes}>
+                    Load Sample Fishes
+                </button>
             </div>
         );
     }
