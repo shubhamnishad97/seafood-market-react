@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "food-order",
-    "builds": [{ "src": "package.json", "use": "@now/static-build" }],
+    "builds": [{ "src": "package.json", "use": "@vercel/static-build" }],
     "routes": [
         { "src": "^/static/(.*)", "dest": "/static/$1" },
         { "src": "^/favicon.ico", "dest": "/favicon.ico" },
